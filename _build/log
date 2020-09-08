@@ -1,0 +1,113 @@
+# dune exec ./client.exe
+# OCAMLPARAM: unset
+# Workspace root: /Users/kyp001/tmp/ocaml-alpaca-clock
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/yk/307mmcf57fb7_1qm5hj_n4rnt8c0yk/T/dune179782.output 2> /dev/null
+# Auto-detected concurrency: 12
+# disable binary cache
+$ /usr/local/bin/ocamlc.opt -config > /var/folders/yk/307mmcf57fb7_1qm5hj_n4rnt8c0yk/T/dune1a4d40.output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dyn
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = "default"
+#  ; toplevel_path = Some External "/Users/kyp001/.opam/default/lib/toplevel"
+#  ; ocaml_bin = External "/usr/local/bin"
+#  ; ocaml = Ok External "/Users/kyp001/.opam/default/bin/ocaml"
+#  ; ocamlc = External "/usr/local/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/usr/local/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/usr/local/bin/ocamldep.opt"
+#  ; ocamlmklib = Ok External "/usr/local/bin/ocamlmklib.opt"
+#  ; env =
+#      map
+#        { "INSIDE_DUNE" :
+#            "/Users/kyp001/tmp/ocaml-alpaca-clock/_build/default"
+#        ; "MANPATH" :
+#            "/Users/kyp001/tmp/ocaml-alpaca-clock/_build/install/default/bin"
+#        ; "OCAMLFIND_IGNORE_DUPS_IN" :
+#            "/Users/kyp001/tmp/ocaml-alpaca-clock/_build/install/default/lib"
+#        ; "OCAMLPATH" :
+#            "/Users/kyp001/tmp/ocaml-alpaca-clock/_build/install/default/lib"
+#        ; "OCAMLTOP_INCLUDE_PATH" :
+#            "/Users/kyp001/tmp/ocaml-alpaca-clock/_build/install/default/lib/toplevel"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; findlib_path = [ External "/Users/kyp001/.opam/default/lib" ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; ocaml_config =
+#      { version = "4.09.0"
+#      ; standard_library_default = "/usr/local/lib/ocaml"
+#      ; standard_library = "/usr/local/lib/ocaml"
+#      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#      ; ccomp_type = "cc"
+#      ; c_compiler = "clang"
+#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; bytecomp_c_compiler =
+#          [ "clang"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; native_c_compiler =
+#          [ "clang"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; native_c_libraries = [ "-lm" ]
+#      ; cc_profile = []
+#      ; architecture = "amd64"
+#      ; model = "default"
+#      ; int_size = 63
+#      ; word_size = 64
+#      ; system = "macosx"
+#      ; asm = [ "clang"; "-arch"; "x86_64"; "-Wno-trigraphs"; "-c" ]
+#      ; asm_cfi_supported = true
+#      ; with_frame_pointers = false
+#      ; ext_exe = ""
+#      ; ext_obj = ".o"
+#      ; ext_asm = ".s"
+#      ; ext_lib = ".a"
+#      ; ext_dll = ".so"
+#      ; os_type = "Unix"
+#      ; default_executable_name = "a.out"
+#      ; systhread_supported = true
+#      ; host = "x86_64-apple-darwin19.3.0"
+#      ; target = "x86_64-apple-darwin19.3.0"
+#      ; profiling = false
+#      ; flambda = false
+#      ; spacetime = false
+#      ; safe_string = false
+#      ; exec_magic_number = "Caml1999X026"
+#      ; cmi_magic_number = "Caml1999I026"
+#      ; cmo_magic_number = "Caml1999O026"
+#      ; cma_magic_number = "Caml1999A026"
+#      ; cmx_magic_number = "Caml1999Y026"
+#      ; cmxa_magic_number = "Caml1999Z026"
+#      ; ast_impl_magic_number = "Caml1999M026"
+#      ; ast_intf_magic_number = "Caml1999N026"
+#      ; cmxs_magic_number = "Caml1999D026"
+#      ; cmt_magic_number = "Caml1999T026"
+#      ; natdynlink_supported = true
+#      ; supports_shared_libraries = true
+#      ; windows_unicode = false
+#      }
+#  }
+# Workspace root: /Users/kyp001/tmp/ocaml-alpaca-clock
+$ (cd _build/default && /usr/local/bin/ocamldep.opt -modules -impl client.ml) > _build/default/.client.eobjs/client.ml.d
+$ (cd _build/default && /usr/local/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .client.eobjs/byte -I /Users/kyp001/.opam/default/lib/astring -I /Users/kyp001/.opam/default/lib/base -I /Users/kyp001/.opam/default/lib/base/base_internalhash_types -I /Users/kyp001/.opam/default/lib/base/caml -I /Users/kyp001/.opam/default/lib/base/shadow_stdlib -I /Users/kyp001/.opam/default/lib/base64 -I /Users/kyp001/.opam/default/lib/bytes -I /Users/kyp001/.opam/default/lib/cohttp -I /Users/kyp001/.opam/default/lib/cohttp-lwt -I /Users/kyp001/.opam/default/lib/cohttp-lwt-unix -I /Users/kyp001/.opam/default/lib/conduit -I /Users/kyp001/.opam/default/lib/conduit-lwt -I /Users/kyp001/.opam/default/lib/conduit-lwt-unix -I /Users/kyp001/.opam/default/lib/domain-name -I /Users/kyp001/.opam/default/lib/fieldslib -I /Users/kyp001/.opam/default/lib/fmt -I /Users/kyp001/.opam/default/lib/ipaddr -I /Users/kyp001/.opam/default/lib/ipaddr-sexp -I /Users/kyp001/.opam/default/lib/ipaddr/unix -I /Users/kyp001/.opam/default/lib/logs -I /Users/kyp001/.opam/default/lib/lwt -I /Users/kyp001/.opam/default/lib/lwt/unix -I /Users/kyp001/.opam/default/lib/lwt_ssl -I /Users/kyp001/.opam/default/lib/macaddr -I /Users/kyp001/.opam/default/lib/magic-mime -I /Users/kyp001/.opam/default/lib/mmap -I /Users/kyp001/.opam/default/lib/ocplib-endian -I /Users/kyp001/.opam/default/lib/ocplib-endian/bigstring -I /Users/kyp001/.opam/default/lib/parsexp -I /Users/kyp001/.opam/default/lib/ppx_sexp_conv/runtime-lib -I /Users/kyp001/.opam/default/lib/re -I /Users/kyp001/.opam/default/lib/re/posix -I /Users/kyp001/.opam/default/lib/result -I /Users/kyp001/.opam/default/lib/seq -I /Users/kyp001/.opam/default/lib/sexplib -I /Users/kyp001/.opam/default/lib/sexplib0 -I /Users/kyp001/.opam/default/lib/ssl -I /Users/kyp001/.opam/default/lib/stdlib-shims -I /Users/kyp001/.opam/default/lib/stringext -I /Users/kyp001/.opam/default/lib/uri -I /Users/kyp001/.opam/default/lib/uri-sexp -I /Users/kyp001/.opam/default/lib/uri/services -I /usr/local/lib/ocaml/threads -no-alias-deps -opaque -o .client.eobjs/byte/dune__exe__Client.cmo -c -impl client.ml)
+$ (cd _build/default && /usr/local/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I .client.eobjs/byte -I .client.eobjs/native -I /Users/kyp001/.opam/default/lib/astring -I /Users/kyp001/.opam/default/lib/base -I /Users/kyp001/.opam/default/lib/base/base_internalhash_types -I /Users/kyp001/.opam/default/lib/base/caml -I /Users/kyp001/.opam/default/lib/base/shadow_stdlib -I /Users/kyp001/.opam/default/lib/base64 -I /Users/kyp001/.opam/default/lib/bytes -I /Users/kyp001/.opam/default/lib/cohttp -I /Users/kyp001/.opam/default/lib/cohttp-lwt -I /Users/kyp001/.opam/default/lib/cohttp-lwt-unix -I /Users/kyp001/.opam/default/lib/conduit -I /Users/kyp001/.opam/default/lib/conduit-lwt -I /Users/kyp001/.opam/default/lib/conduit-lwt-unix -I /Users/kyp001/.opam/default/lib/domain-name -I /Users/kyp001/.opam/default/lib/fieldslib -I /Users/kyp001/.opam/default/lib/fmt -I /Users/kyp001/.opam/default/lib/ipaddr -I /Users/kyp001/.opam/default/lib/ipaddr-sexp -I /Users/kyp001/.opam/default/lib/ipaddr/unix -I /Users/kyp001/.opam/default/lib/logs -I /Users/kyp001/.opam/default/lib/lwt -I /Users/kyp001/.opam/default/lib/lwt/unix -I /Users/kyp001/.opam/default/lib/lwt_ssl -I /Users/kyp001/.opam/default/lib/macaddr -I /Users/kyp001/.opam/default/lib/magic-mime -I /Users/kyp001/.opam/default/lib/mmap -I /Users/kyp001/.opam/default/lib/ocplib-endian -I /Users/kyp001/.opam/default/lib/ocplib-endian/bigstring -I /Users/kyp001/.opam/default/lib/parsexp -I /Users/kyp001/.opam/default/lib/ppx_sexp_conv/runtime-lib -I /Users/kyp001/.opam/default/lib/re -I /Users/kyp001/.opam/default/lib/re/posix -I /Users/kyp001/.opam/default/lib/result -I /Users/kyp001/.opam/default/lib/seq -I /Users/kyp001/.opam/default/lib/sexplib -I /Users/kyp001/.opam/default/lib/sexplib0 -I /Users/kyp001/.opam/default/lib/ssl -I /Users/kyp001/.opam/default/lib/stdlib-shims -I /Users/kyp001/.opam/default/lib/stringext -I /Users/kyp001/.opam/default/lib/uri -I /Users/kyp001/.opam/default/lib/uri-sexp -I /Users/kyp001/.opam/default/lib/uri/services -I /usr/local/lib/ocaml/threads -intf-suffix .ml -no-alias-deps -opaque -o .client.eobjs/native/dune__exe__Client.cmx -c -impl client.ml)
+$ (cd _build/default && /usr/local/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o client.exe /Users/kyp001/.opam/default/lib/result/result.cmxa /Users/kyp001/.opam/default/lib/lwt/lwt.cmxa /Users/kyp001/.opam/default/lib/re/re.cmxa /Users/kyp001/.opam/default/lib/stringext/stringext.cmxa /Users/kyp001/.opam/default/lib/re/posix/re_posix.cmxa /Users/kyp001/.opam/default/lib/uri/uri.cmxa /Users/kyp001/.opam/default/lib/sexplib0/sexplib0.cmxa /Users/kyp001/.opam/default/lib/ppx_sexp_conv/runtime-lib/ppx_sexp_conv_lib.cmxa /Users/kyp001/.opam/default/lib/uri-sexp/uri_sexp.cmxa /Users/kyp001/.opam/default/lib/base/base_internalhash_types/base_internalhash_types.cmxa -I /Users/kyp001/.opam/default/lib/base/base_internalhash_types /Users/kyp001/.opam/default/lib/base/caml/caml.cmxa /Users/kyp001/.opam/default/lib/base/shadow_stdlib/shadow_stdlib.cmxa /Users/kyp001/.opam/default/lib/base/base.cmxa -I /Users/kyp001/.opam/default/lib/base /Users/kyp001/.opam/default/lib/fieldslib/fieldslib.cmxa /Users/kyp001/.opam/default/lib/base64/base64.cmxa /Users/kyp001/.opam/default/lib/stdlib-shims/stdlib_shims.cmxa /Users/kyp001/.opam/default/lib/cohttp/cohttp.cmxa /Users/kyp001/.opam/default/lib/fmt/fmt.cmxa /Users/kyp001/.opam/default/lib/logs/logs.cmxa /Users/kyp001/.opam/default/lib/logs/logs_lwt.cmxa /usr/local/lib/ocaml/unix.cmxa -I /usr/local/lib/ocaml /usr/local/lib/ocaml/bigarray.cmxa -I /usr/local/lib/ocaml /Users/kyp001/.opam/default/lib/parsexp/parsexp.cmxa /Users/kyp001/.opam/default/lib/sexplib/sexplib.cmxa /Users/kyp001/.opam/default/lib/macaddr/macaddr.cmxa /Users/kyp001/.opam/default/lib/astring/astring.cmxa /Users/kyp001/.opam/default/lib/domain-name/domain_name.cmxa /Users/kyp001/.opam/default/lib/ipaddr/ipaddr.cmxa /Users/kyp001/.opam/default/lib/ipaddr-sexp/ipaddr_sexp.cmxa /Users/kyp001/.opam/default/lib/conduit/conduit.cmxa /Users/kyp001/.opam/default/lib/conduit-lwt/conduit_lwt.cmxa /Users/kyp001/.opam/default/lib/mmap/mmap.cmxa /Users/kyp001/.opam/default/lib/ocplib-endian/ocplib_endian.cmxa /Users/kyp001/.opam/default/lib/ocplib-endian/bigstring/ocplib_endian_bigstring.cmxa /usr/local/lib/ocaml/threads/threads.cmxa -I /usr/local/lib/ocaml /Users/kyp001/.opam/default/lib/lwt/unix/lwt_unix.cmxa -I /Users/kyp001/.opam/default/lib/lwt/unix /Users/kyp001/.opam/default/lib/uri/services/uri_services.cmxa /Users/kyp001/.opam/default/lib/ipaddr/unix/ipaddr_unix.cmxa /Users/kyp001/.opam/default/lib/ssl/ssl.cmxa -I /Users/kyp001/.opam/default/lib/ssl /Users/kyp001/.opam/default/lib/lwt_ssl/lwt_ssl.cmxa /Users/kyp001/.opam/default/lib/conduit-lwt-unix/conduit_lwt_unix.cmxa /Users/kyp001/.opam/default/lib/magic-mime/magic_mime_library.cmxa /Users/kyp001/.opam/default/lib/cohttp-lwt/cohttp_lwt.cmxa /Users/kyp001/.opam/default/lib/cohttp-lwt-unix/cohttp_lwt_unix.cmxa .client.eobjs/native/dune__exe__Client.cmx)
