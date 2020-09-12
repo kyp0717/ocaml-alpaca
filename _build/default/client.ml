@@ -2,12 +2,26 @@ open Lwt
 open Cohttp
 open Cohttp_lwt_unix
 
+
+let get_value key (yaml: Yaml.value) = match yaml with
+  | `O assoc -> List.assoc_opt key assoc
+  | _ -> None
+
+let unbox opt = match opt with
+  | Some x -> x
+  | None -> "xxx"
+
 let reqBody =
+  let yaml = Yaml_unix.of_file_exn (Fpath.v "keys.paper.yaml") in
+  let val1a = get_value "key" yaml in
+  let val1b = unbox val1a in
+  let val2a = get_value "secret" yaml in
+  let val2b = get_value val2a in
   let uri = Uri.of_string "https://paper-api.alpaca.markets/v2/clock" in
   let headers = Header.init ()
     |> fun h -> Header.add_list h 
-                [("APCA-API-KEY-ID","PKLDSENB0U8ST5KZI612"); 
-                 ("APCA-API-SECRET-KEY","qEmsGIbj8WSBK3DLVDlwcB6KJ3JsLcndnuCHdLIu")]
+                [("APCA-API-KEY-ID", val1b); 
+                 ("APCA-API-SECRET-KEY", val2b)]
   in
   Client.call ~headers `GET uri >>= fun (resp, body) ->
   let code = resp |> Response.status |> Code.code_of_status in
