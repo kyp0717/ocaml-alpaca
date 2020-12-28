@@ -1,3 +1,0 @@
-(executable
-  (name client)
-  (libraries lwt cohttp cohttp-lwt-unix yaml yaml.unix))

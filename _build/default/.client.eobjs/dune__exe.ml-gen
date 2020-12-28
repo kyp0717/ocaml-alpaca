@@ -1,5 +1,0 @@
-(** @canonical Dune__exe.Client *)
-module Client = Dune__exe__Client
-
-(** @canonical Dune__exe.Local_open *)
-module Local_open = Dune__exe__Local_open
