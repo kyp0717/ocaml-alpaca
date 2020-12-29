@@ -1,0 +1,4 @@
+(test
+ (name test)
+ (libraries alpaca yaml.unix cohttp cohttp-lwt-unix lwt yaml bos ezjsonm alcotest junit_alcotest)
+ (deps (source_tree alpaca )))

@@ -1,5 +1,5 @@
 (library
  (name alpaca)
  (public_name alpaca)
- (libraries yaml.ffi rresult logs fmt sexplib)
+ (libraries yaml yaml.unix cohttp-lwt-unix cohttp yaml.ffi rresult logs lwt fmt sexplib)
  (preprocess (pps ppx_sexp_conv)))

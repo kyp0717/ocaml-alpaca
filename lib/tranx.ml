@@ -1,4 +1,4 @@
-
+(*
 open Lwt
 open Cohttp
 open Cohttp_lwt_unix
@@ -39,3 +39,4 @@ let req_alpaca_time =
 let () =
   let respBody = Lwt_main.run reqBody in
   print_endline (respBody)
+  *)

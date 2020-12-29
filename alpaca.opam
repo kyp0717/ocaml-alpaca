@@ -13,6 +13,7 @@ depends: [
   "ppx_sexp_conv" {>= "v0.9.0"}
   "sexplib"
   "rresult"
+  "yaml"
   "fmt"
   "logs"
   "bos"
@@ -29,11 +30,6 @@ build: [
 dev-repo: "git+https://github.com/avsm/ocaml-yaml.git"
 synopsis: "API for alpaca"
 description: """
-This is an OCaml library to parse and generate the YAML file
-format.  It is intended to interoperable with the [Ezjsonm](https://github.com/mirage/ezjsonm)
-JSON handling library, if the simple common subset of Yaml
-is used.  Anchors and other advanced Yaml features are not
-implemented in the JSON compatibility layer.
-
+This is test by Phat Ky
 The [Yaml module docs](http://anil-code.recoil.org/ocaml-yaml/yaml/Yaml/index.html) are browseable online.
 """
