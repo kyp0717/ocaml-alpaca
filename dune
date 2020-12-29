@@ -1,3 +1,6 @@
-(executable
-  (name client)
-  (libraries lwt cohttp cohttp-lwt-unix yaml yaml.unix))
+(env (_ (flags (:standard -w -9-27-32))))
+(alias
+ (name readme)
+ (deps README.md)
+ )
+
