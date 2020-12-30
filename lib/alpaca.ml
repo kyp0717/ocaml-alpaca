@@ -1,7 +1,8 @@
 module Util = Util
 type 'a res = ('a, Rresult.R.msg) Result.result
 
-(*
+(*********************
+--- not implemented ----	
 open Rresult
 open R.Infix
 
@@ -47,4 +48,4 @@ let req_alpaca_time =
 let () =
   let respBody = Lwt_main.run reqBody in
   print_endline (respBody)
-  *)
+**************)

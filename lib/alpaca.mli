@@ -14,7 +14,7 @@ module Util : sig
   val to_list : Yaml.value -> Yaml.value list res 
   (** [to_list yml] will return a list of all values stored in a list-like Yaml.value  *)
 
-  (* val map : (Yaml.value -> Yaml.value) -> Yaml.value -> Yaml.value res *) 
+  val map : (Yaml.value -> Yaml.value) -> Yaml.value -> Yaml.value res 
   (** [map f v] applies [f] to each element of [v] *)
 
   (* "Unboxing" functions *)
