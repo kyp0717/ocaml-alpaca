@@ -3,7 +3,7 @@ open Rresult
 let member key = function 
   | `O assoc -> Ok (List.assoc_opt key assoc)
   | _ -> Error (`Msg "Expecting a Yaml.value of `O")
-(*
+
 let keys = function 
   | `O assoc -> Ok (List.map (fun (key, _) -> key) assoc)                                                     
   | _ -> Error (`Msg "Expecting a Yaml.value of `O")
@@ -24,7 +24,7 @@ let to_float = function
   | `Float a -> Ok a
   | _ -> Error (`Msg "Expecting a Yaml.value of `Float")
 
-let map ~f = function
-  | `A lst -> Ok ( `A (List.map f lst) )
-  | _ -> Error (`Msg "Expecting a Yaml.value of `A")
-  *)
+(* let map f = function *)
+(*   | `A lst -> Ok ( `A (List.map f lst) ) *)
+(*   | _ -> Error (`Msg "Expecting a Yaml.value of `A") *)
+  
