@@ -81,19 +81,20 @@ let test_to_float () =
   Alcotest.(check (result (float_compare) error))  "fail" err_output (to_float err_input)
 
 
-let pp_print_value_string ppf (`String x) =
-  Format.pp_print_string ppf x
+(* let pp_print_value_string ppf (`String x) = *)
+(*   Format.pp_print_string ppf x *)
 
-let pp_print_map ppf value_list= 
-  Format.fprintf ppf "[%a]" 
-      Format.(pp_print_list ~pp_sep:pp_comma Format.pp_print_string) value_list
+(* let pp_print_map ppf value_list= *) 
+(*   Format.fprintf ppf "[%a]" *) 
+(*       Format.(pp_print_list ~pp_sep:pp_comma Format.pp_print_string) value_list *)
 
-let pp_print_map ppf = function
-  | `A lst ->   Format.fprintf ppf "[%a]"  Format.(pp_print_list ~pp_sep:pp_comma pp_print_value_string) lst
-  | _ -> Format.fprintf ppf "%s" "bad"
+(* let pp_print_map ppf = function *)
+(*   | `A lst ->   Format.fprintf ppf "[%a]"  Format.(pp_print_list ~pp_sep:pp_comma pp_print_value_string) lst *)
+(*   | _ -> Format.fprintf ppf "%s" "bad" *)
 
-let map_equal a b = (a=b)
-let map_compare = Alcotest.testable pp_print_map map_equal
+(* let map_equal a b = (a=b) *)
+(* let map_compare = Alcotest.testable pp_print_map map_equal *)
+let map_compare = Alcotest.testable Yaml.pp  Stdlib.( = )
 
 (* let test_map () = *)
 (*   let upper (`String x) = `String (String.uppercase_ascii x) in *)
@@ -102,20 +103,21 @@ let map_compare = Alcotest.testable pp_print_map map_equal
 (*   let err_input = `String "John" in *)
 (*   let err_output = Error (`Msg "Expecting a Yaml.value of `A") in *)
 (*   Alcotest.(check (result (map_compare) error)) "success" ok_output (map upper ok_input); *)
-(*   Alcotest.(check (result (map_compare) error))  "fail" err_output (map ~f:upper err_input) *)
+(*   Alcotest.(check (result (map_compare) error))  "fail" err_output (map upper err_input) *)
 
 
 let test_map () =
   let upper=function
     | `String x -> `String (String.uppercase_ascii x) 
-    | _ -> `Null
+    | _ -> `String "Null"
     in
-  let ok_input = `A [ (`String "John") ; (`String "Doe") ] in
-  let ok_output = Ok ( `A [ (`String "JOHN") ; (`String "DOE") ] ) in
+  let ok_input = `A ([ (`String "John") ; (`String "Doe") ]) in
+  let ok_output = Ok ( `A ([ (`String "JOHN") ; (`String "DOE") ] )) in
+  (* let ok_output = Ok ( `A [ ("JOHN") ; ("DOE") ] ) in *)
   let err_input = `String "John" in
   let err_output = Error (`Msg "Expecting a Yaml.value of `A") in
-  Alcotest.(check (result (map_compare) error)) "success" ok_output (map upper ok_input);
-  Alcotest.(check (result (map_compare) error))  "fail" err_output (map upper err_input)
+  Alcotest.(check (result map_compare error)) "success" ok_output (map upper ok_input);
+  Alcotest.(check (result map_compare error))  "fail" err_output (map upper err_input)
 
 
 
