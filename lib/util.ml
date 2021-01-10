@@ -1,16 +1,31 @@
 open Rresult
 
-let member key = function 
+let get_value key = function 
   | `O assoc -> Ok (List.assoc_opt key assoc)
   | _ -> Error (`Msg "Expecting a Yaml.value of `O")
 
-let keys = function 
+
+
+let get_keys = function 
   | `O assoc -> Ok (List.map (fun (key, _) -> key) assoc)                                                     
   | _ -> Error (`Msg "Expecting a Yaml.value of `O")
 
 let to_list = function 
   | `O assoc -> Ok (List.map (fun (_, v) -> v) assoc)                                                     
   | _ -> Error (`Msg "Expecting a Yaml.value of `O")
+
+  
+let get_string = function
+    | None -> failwith "bad"
+    | Some v -> match v with
+                | `String x -> x
+                | _ -> failwith "bad xxxx"
+
+
+let get_string_opt = function
+  | Ok (x) -> x
+  | Error _ -> None
+
 
 let to_string = function
   | `String a -> Ok a

@@ -1,8 +1,6 @@
 module Util = Util
 type 'a res = ('a, Rresult.R.msg) Result.result
 
-(*********************
---- not implemented ----	
 open Rresult
 open R.Infix
 
@@ -11,23 +9,24 @@ open Lwt
 open Cohttp
 open Cohttp_lwt_unix
 
+type access_info = {
+  urltrade : string;
+  urldata : string;
+  urlsocket: string;
+  key : string;
+  secret: string;
+} [@@deriving yaml]
 
-let get_value key (yaml: Yaml.value) = match yaml with
-  | `O assoc -> List.assoc_opt key assoc
-  | _ -> None
-
-let unbox opt = match opt with
-  | Some x -> x
-  | None -> "xxx"
-
-let alpaca_secret = 
+let (alpaca_secret, alpaca_key) = 
   let yaml = Yaml_unix.of_file_exn (Fpath.v "keys.paper.yaml") in
-  get_value "secret" yaml |> unbox
+  let key = yaml |> get_value "key" |> get_string_opt |> get_string in 
+  let secret = yaml |> get_value "secret" |> get_string_opt |> get_string in
+  (secret, key)
 
-
+(* 
 let alpaca_key =
   let yaml = Yaml_unix.of_file_exn (Fpath.v "keys.paper.yaml") in
-  get_value "key" yaml |> unbox
+  get_value "key" yaml |> unbox *)
 
 let headers = Header.init ()
   |> fun h -> Header.add_list h 
@@ -48,4 +47,3 @@ let req_alpaca_time =
 let () =
   let respBody = Lwt_main.run reqBody in
   print_endline (respBody)
-**************)
