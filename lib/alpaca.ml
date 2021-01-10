@@ -1,4 +1,4 @@
-module Util = Util
+(* module Util = Util *)
 type 'a res = ('a, Rresult.R.msg) Result.result
 
 open Rresult
@@ -30,8 +30,8 @@ let alpaca_key =
 
 let headers = Header.init ()
   |> fun h -> Header.add_list h 
-              [("APCA-API-KEY-ID", val1b); 
-               ("APCA-API-SECRET-KEY", val2b)]
+              [("APCA-API-KEY-ID", alpaca_key); 
+               ("APCA-API-SECRET-KEY", alpaca_secret)]
 
 let req_alpaca_time =
   let uri = Uri.of_string "https://paper-api.alpaca.markets/v2/clock" in
